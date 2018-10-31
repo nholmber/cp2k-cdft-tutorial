@@ -1,0 +1,41 @@
+@SET RESTART_1            TRUE
+@SET WFN_FILE_1           water-dimer-pbe-energy-1_0.wfn
+
+@SET DFT_FILE             dft-common-params.inc
+
+@SET PROJECT_NAME         water-dimer-cdft-frag-adj
+@SET XYZFILE              water-dimer.xyz
+
+@SET PW_CUTOFF            300
+@SET PW_REL_CUTOFF        50
+@SET CENTER_SYS           ON
+@SET SAVE_CUBE            FALSE
+
+@SET BECKE_ACTIVE         TRUE
+@SET BECKE_STR_1          0.0
+@SET BECKE_TARGET_1       0.0
+@SET BECKE_USE_RADII      TRUE
+
+@SET BECKE_FRAG_CONSTRAINT TRUE
+@SET BECKE_FRAG_A         water-dimer-frag-a-pbe-energy-ELECTRON_DENSITY-1_0.cube
+@SET BECKE_FRAG_A_SPIN    water-dimer-frag-a-pbe-energy-SPIN_DENSITY-1_0.cube
+@SET BECKE_FRAG_B         water-dimer-frag-b-pbe-energy-ELECTRON_DENSITY-1_0.cube
+@SET BECKE_FRAG_B_SPIN    water-dimer-frag-b-pbe-energy-SPIN_DENSITY-1_0.cube
+
+
+&GLOBAL
+  PROJECT ${PROJECT_NAME}
+  RUN_TYPE ENERGY
+  PRINT_LEVEL MEDIUM
+&END GLOBAL
+
+&FORCE_EVAL
+  @SET WFN_FILE     ${WFN_FILE_1}
+  @SET RESTART      ${RESTART_1}
+  @SET NAME         ${PROJECT_NAME}
+  @SET BECKE_TARGET ${BECKE_TARGET_1}
+  @SET BECKE_STR    ${BECKE_STR_1}
+  METHOD QS
+  @include ${DFT_FILE}
+  @include subsys.inc
+&END FORCE_EVAL
