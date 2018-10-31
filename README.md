@@ -14,6 +14,8 @@ The input files in this repository are divided by category into separate folders
 * tutorial-water:
   * Study the effects of using different Becke weight function formalisms
   * Learn how to use fragment based constraints and to identify when such constraints are useful
+* tutorial-h2:
+  * Learn how to perform configuration interaction calculations with CDFT (CDFT-CI)
 
 If you find the CP2K/CDFT method useful in your work and decide to publish your results, please cite the original implementation papers:
 
