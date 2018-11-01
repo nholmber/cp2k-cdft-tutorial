@@ -16,6 +16,8 @@ The input files in this repository are divided by category into separate folders
   * Learn how to use fragment based constraints and to identify when such constraints are useful
 * tutorial-h2:
   * Learn how to perform configuration interaction calculations with CDFT (CDFT-CI)
+* tutorial-hirshfeld:
+  * Same as tutorial-zn but using a Hirshfeld based constraint
 
 If you find the CP2K/CDFT method useful in your work and decide to publish your results, please cite the original implementation papers:
 
